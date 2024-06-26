@@ -14,6 +14,9 @@ function useWindowsize() {
 
     useEffect( ()=> {
         window.addEventListener('resize',calsize);
+        return () => {
+            window.removeEventListener('resize',calsize);
+        }
 
     },[]);
     return windowSize;

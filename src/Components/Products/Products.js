@@ -4,7 +4,7 @@ import Effect from "../Effect/Effect";
 import { useState , useEffect } from "react";
 import useWindowsize from "../CustomHook/useWindowsize";
 
-function Products() {
+function Products({cart,increaseQuantity,decreaseQuantity}) {
     // const products = [
     //     {
     //     id: 1,
@@ -54,7 +54,6 @@ function Products() {
     },[]);
 
     
-
     return (
         // <div>
         //     I am Product
@@ -69,7 +68,7 @@ function Products() {
              <Effect/>
             {
                 products.map(function(item) {
-                    return (<ProductCard key={item.id} title={item.title} price={item.price}/>)
+                    return (<ProductCard key={item.id} product={item} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity}/>)
                 })
             }
         </div>

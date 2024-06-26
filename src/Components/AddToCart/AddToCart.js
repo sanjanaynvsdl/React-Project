@@ -1,10 +1,30 @@
-function AddToCart({inputV}) {
-    console.log("Rendering-AddToCart",inputV);
-    return (
-        <div>
-            Add To Cart - {inputV}
-        </div>
-    )
+function AddToCart({cart,product,increaseQuantity,decreaseQuantity}) {
+    function increase() {
+        increaseQuantity(product);
+    }
+    function decrease() {
+        decreaseQuantity(product);
+    }
+    //But the problem if the product is not in the cart! so,add if-else
+    let quantity=cart[product.id]? cart[product.id].quantity:0;
+    if(quantity==0) {
+        return (
+            <div>
+                <button onClick={increase}>Add-To-Cart</button>
+                
+            </div>
+        )
+    }
+    else {
+        return(
+            <div>
+                <button onClick={decrease}>-</button>
+                <span>{quantity}</span>
+                <button onClick={increase}>+</button>
+            </div>
+        )
+    }
+    
 }
 export  default AddToCart;
 //AddToCart is used in ProductCart component
@@ -15,3 +35,11 @@ export  default AddToCart;
 // console.log("Rendering-AddToCart",inputV);
 //This is written to check weather re-render causes here or not
 //Re-rendering occurse coz we are using the inputV variable (which is a state-variable)
+
+
+//------------Implement Cart- state-management-19-06-2024---------------->
+
+//cart = 
+//Two-ways to implement cart
+//Array of objects 
+//Object of objects (Efficent way)

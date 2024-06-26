@@ -2,7 +2,7 @@
 import AddToCart from '../AddToCart/AddToCart';
 import './ProductCard.css';
 import {useRef,useState} from 'react';
-function ProductCard({title,price}) {
+function ProductCard({product, cart, increaseQuantity, decreaseQuantity}) {
     let pRef=useRef(0);
     // let iRef=useRef(0);
     // let oRef=useRef(0);
@@ -12,7 +12,7 @@ function ProductCard({title,price}) {
     //useState hook
     let [inputV,setInputV]=useState('');
     function printTitle() {
-        console.log(title);
+        console.log(product.title);
         console.log(pRef.current.innerText);
         if(pRef.current.style.display==='none') {
             pRef.current.style.display='block';
@@ -43,12 +43,12 @@ function ProductCard({title,price}) {
     return (
         <div className='product-card'>
             {/* Q1) Hide the price when the title is clicked vice-versa */}
-            <p onClick={printTitle}>{title}</p>
-            <p ref={pRef}>{price.value}</p>
+            <p onClick={printTitle}>{product.title}</p>
+            <p ref={pRef}>{product.price.value}</p>
             {/* Q1) set the input value to output-p-tag using useState */}
             <input type="text" onChange={displayOutput} value={inputV}/>
             <p>The output is - {inputV} </p> 
-            <AddToCart inputV={inputV}/>
+            <AddToCart product={product} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} />
         </div>
     )
 }
