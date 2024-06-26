@@ -1,5 +1,6 @@
-import ProductCard from "./ProductCard";
-
+// import ProductCard from "../ProductCard/ProductCard";
+import ProductCard from "../ProductCard/ProductCard";
+import Effect from "../Effect/Effect";
 
 function Products() {
     const products = [
@@ -45,6 +46,7 @@ function Products() {
         // </div>
         <div>
              I am Product
+             <Effect/>
             {
                 products.map(function(item) {
                     return (<ProductCard title={item.title} price={item.price}/>)
