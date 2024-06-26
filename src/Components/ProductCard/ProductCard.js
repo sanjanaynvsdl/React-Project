@@ -4,8 +4,8 @@ import './ProductCard.css';
 import {useRef,useState} from 'react';
 function ProductCard({title,price}) {
     let pRef=useRef(0);
-    let iRef=useRef(0);
-    let oRef=useRef(0);
+    // let iRef=useRef(0);
+    // let oRef=useRef(0);
     //Give de-fault value as 0 
     //If not assigned it will be undefined
     //use this with the required element!
@@ -44,7 +44,7 @@ function ProductCard({title,price}) {
         <div className='product-card'>
             {/* Q1) Hide the price when the title is clicked vice-versa */}
             <p onClick={printTitle}>{title}</p>
-            <p ref={pRef}>{price}</p>
+            <p ref={pRef}>{price.value}</p>
             {/* Q1) set the input value to output-p-tag using useState */}
             <input type="text" onChange={displayOutput} value={inputV}/>
             <p>The output is - {inputV} </p> 
@@ -67,8 +67,7 @@ export default ProductCard;
 // ----------------------------------useRef----------------------------------->
 
 // Q1) set the input value to output-p-tag using useRef
-{/* <input type="text" onChange={displayOutput} ref={iRef} /> */}
-{/* <p ref={oRef}>The output is : </p>  */}
+
 //Instead we can use state-variable hook 
 
 //----------------------------------useState----------------------------------->
