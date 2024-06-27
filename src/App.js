@@ -1,7 +1,8 @@
-import logo from './logo.svg';
+// import logo from './Assets/logo.svg';
 import './App.css';
 import Products from './Components/Products/Products.js';
 import { useState } from 'react';
+import CartContext from './Context/CartContext.js';
 
 function App() {
   //createCart-function-increasequantity and decrease quantity!
@@ -14,6 +15,7 @@ function App() {
         // id:product.id,
         // title:product.title,
         // price:product.price,
+        //...product called 
         ...product,
         quantity:0
       }
@@ -34,9 +36,11 @@ function App() {
   }
 
   return (
+    <CartContext.Provider value={{cart,increaseQuantity,decreaseQuantity}}>
     <div className="App">
-      <Products cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity}/>
+      <Products />
     </div>
+    </CartContext.Provider>
   );
 }
 

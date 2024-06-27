@@ -3,8 +3,9 @@ import ProductCard from "../ProductCard/ProductCard";
 import Effect from "../Effect/Effect";
 import { useState , useEffect } from "react";
 import useWindowsize from "../CustomHook/useWindowsize";
+import React from "react";
 
-function Products({cart,increaseQuantity,decreaseQuantity}) {
+function Products() {
     // const products = [
     //     {
     //     id: 1,
@@ -68,7 +69,7 @@ function Products({cart,increaseQuantity,decreaseQuantity}) {
              <Effect/>
             {
                 products.map(function(item) {
-                    return (<ProductCard key={item.id} product={item} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity}/>)
+                    return (<ProductCard key={item.id} product={item} />)
                 })
             }
         </div>
@@ -78,7 +79,7 @@ function Products({cart,increaseQuantity,decreaseQuantity}) {
 export var a=10;
 export var b=20;
 
-export default Products;
+export default React.memo(Products);
 
 
 //Fetching the data

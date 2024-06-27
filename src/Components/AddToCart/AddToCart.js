@@ -1,4 +1,10 @@
-function AddToCart({cart,product,increaseQuantity,decreaseQuantity}) {
+import { useContext } from 'react';
+import CartContext from '../../Context/CartContext.js';
+function AddToCart({product}) {
+
+    //input the CartContext
+    const {cart,increaseQuantity, decreaseQuantity}=useContext(CartContext);
+    
     function increase() {
         increaseQuantity(product);
     }
@@ -7,7 +13,7 @@ function AddToCart({cart,product,increaseQuantity,decreaseQuantity}) {
     }
     //But the problem if the product is not in the cart! so,add if-else
     let quantity=cart[product.id]? cart[product.id].quantity:0;
-    if(quantity==0) {
+    if(quantity===0) {
         return (
             <div>
                 <button onClick={increase}>Add-To-Cart</button>

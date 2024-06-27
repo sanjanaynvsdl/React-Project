@@ -2,7 +2,7 @@
 import AddToCart from '../AddToCart/AddToCart';
 import './ProductCard.css';
 import {useRef,useState} from 'react';
-function ProductCard({product, cart, increaseQuantity, decreaseQuantity}) {
+function ProductCard({product}) {
     let pRef=useRef(0);
     // let iRef=useRef(0);
     // let oRef=useRef(0);
@@ -48,7 +48,7 @@ function ProductCard({product, cart, increaseQuantity, decreaseQuantity}) {
             {/* Q1) set the input value to output-p-tag using useState */}
             <input type="text" onChange={displayOutput} value={inputV}/>
             <p>The output is - {inputV} </p> 
-            <AddToCart product={product} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} />
+            <AddToCart product={product} />
         </div>
     )
 }
