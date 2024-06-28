@@ -36,7 +36,7 @@ export  default AddToCart;
 //AddToCart is used in ProductCart component
 //Now, Q) what-ever I write in input box it should be appended to the Add to cart component too 
 //To achieve this we have props (which can pan be passed from parent to child component)
-//We can pass the input value from ProductCard to AddToCart component!
+//We can pass the input value from ProductCard to AddToCart 
 
 // console.log("Rendering-AddToCart",inputV);
 //This is written to check weather re-render causes here or not
